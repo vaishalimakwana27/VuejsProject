@@ -1,67 +1,33 @@
 <template>
-  <div className="parent-div">
-    <mainheader />
-    <content />
-    <hr />
-    <button @click="onDiv()">Click me</button>
-      <p v-if="showDiv">show</p>
-    <br />
-    <br>
-    <hr/>
-  <example></example>
-    <footermain />
-  </div>
+  <headers />
+  <maincontent />
+  <topdestination />
+  <featuredhotels />
+  <mainfooter />
 </template>
 
 <script>
-import mainheader from "./components/Header.vue";
-import footermain from "./components/Footer.vue";
-import content from "./components/body/Content.vue";
-import example from "./components/body/ExampleCondition.vue";
+import mainfooter from "./components/layout/Footer.vue";
+import headers from "./components/layout/Header.vue";
+import maincontent from "./components/layout/MainContent.vue";
+import topdestination from "./components/layout/TopDestination.vue";
+import featuredhotels from "./components/layout/FeaturedHotels.vue";
+
 export default {
   name: "App",
-  components: { mainheader, footermain, content ,example},
+  components: {
+    headers,
+    maincontent,
+    mainfooter,
+    topdestination,
+    featuredhotels,
+  },
   props: {},
   data() {
-    return {
-      showDiv: false,
-    };
+    return {};
   },
-  methods: {
-    onDiv() {
-      this.showDiv = true;
-    },
-  },
+  methods: {},
 };
 </script>
 
-<style>
-.add-btn {
-  background-color: teal;
-  color: white;
-  border: 3px solid black;
-  margin-right: 30px;
-  font-size: 25px;
-}
-.alert-button {
-  background-color: blueviolet;
-  color: white;
-  border: 3px solid black;
-  font-size: 25px;
-  margin-right: 30px;
-}
-.show-data-button {
-  background-color: teal;
-  color: white;
-  border: 3px solid black;
-  font-size: 25px;
-  margin-right: 30px;
-}
-.show--filter-data-button {
-  background-color: blueviolet;
-  color: white;
-  border: 3px solid black;
-  font-size: 25px;
-  margin-right: 30px;
-}
-</style>
+<style></style>

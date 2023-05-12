@@ -56,7 +56,7 @@ export default {
             catNumber: [10,15,20,40,50,55,60,70],
             empName: ['AAA','BBB','CCC','DDD'],
             getDataList:[],
-             listCat: [
+            listCat: [
         { cateName: "laptop", model: 'lenova', price: 20000 },
         { cateName: "TV", model: 'sony', price: 40000 },
         { cateName: "Mobile", model: 'iphone', price: 50000 },
@@ -65,8 +65,8 @@ export default {
     },
     method:{
     async onClickgetData() {
-      const data = await fetch("https://dummy.restapiexample.com/api/v1/employees");
-      this.getDataList = await data.json();
+      const empData = await fetch("https://dummy.restapiexample.com/api/v1/employees");
+      this.getDataList = await empData.json();
      // console.log("print data",data);
     },
     },
