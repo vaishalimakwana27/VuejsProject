@@ -1,4 +1,12 @@
 <template>
+  <div>
+    <h1>ForLoop</h1>
+    <ul v-for="(empData, key, index) in emName" :key="key">
+      <li>
+        {{ empData.name }}
+      </li>
+    </ul>
+  </div>
   <div class="featured_part">
     <div class="container">
       <div class="row">
@@ -133,5 +141,11 @@
 export default {
   name: "Footer",
   components: {},
+  data() {
+    return {
+      emName: [{ name: "aaa" }, { name: "bbb" }, { name: "ccc" }],
+    };
+  },
+  methods: {},
 };
 </script>
