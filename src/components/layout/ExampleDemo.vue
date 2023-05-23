@@ -34,7 +34,7 @@
 
     <div>test</div>
     <div v-for="(catItem, key, index) in dataList" :key="key">
-      <h3>{{ key.price }} -</h3>
+      <h3>{{ catItem.price }} -</h3>
     </div>
   </div>
 </template>
@@ -58,11 +58,16 @@ export default {
       this.inputs.push({ productname: "", price: "" });
     },
     onClickgetData() {
-      const newArray = this.inputs.map((ele, index, arr) => {
-        return [ele.productname, ele.price];
+      // const newArray = this.inputs.map((ele, index, arr) => {
+      //   return [ele.productname, ele.price];
+      // });
+      // this.dataList = newArray;
+      // console.log("newArray", newArray);
+
+      Object.values(this.inputs).forEach((value) => {
+        this.dataList = value;
+        console.log(value);
       });
-      this.dataList = newArray;
-      console.log("newArray", newArray);
     },
   },
 };
