@@ -9,7 +9,7 @@
     <tr v-for="(input, index) in inputs">
       <td>
         <input
-          :name="'productName' + index"
+          :name="'productname'"
           type="text"
           v-model="input.productname"
           placeholder="ProductName"
@@ -17,7 +17,7 @@
       </td>
       <td>
         <input
-          :name="'price' + index"
+          :name="'price'"
           type="text"
           v-model="input.price"
           placeholder="Price"
@@ -37,8 +37,20 @@
       <h3>{{ catItem.price }} -</h3>
     </div>
   </div>
+  <br />
+  <div>
+    <input
+      class="input-area"
+      type="text"
+      v-model="searchText"
+      placeholder="Enter API Data heare"
+    />
+  </div>
+  <div v-for="item in filterData" :key="item.id">
+    {{ item.title }} ::::::::::- {{ item.completed }}
+  </div>
+  <hr />
   <div></div>
-
 </template>
 <script>
 export default {
@@ -53,7 +65,23 @@ export default {
         },
       ],
       dataList: [],
+      listItems: [],
+      searchText: null,
     };
+  },
+  computed: {
+    filterData() {
+      if (this.searchText) {
+        return this.listItems.filter((item) => {
+          return this.searchText
+            .toLowerCase()
+            .split(" ")
+            .every((v) => item.title.toLowerCase().includes(v));
+        });
+      } else {
+        return this.listItems;
+      }
+    },
   },
   methods: {
     addBlock() {
@@ -71,6 +99,14 @@ export default {
         console.log(value);
       });
     },
+    async getData() {
+      const result = await fetch("https://jsonplaceholder.typicode.com/todos");
+      const finalRes = await result.json();
+      this.listItems = finalRes;
+    },
+  },
+  mounted() {
+    this.getData();
   },
 };
 </script>
