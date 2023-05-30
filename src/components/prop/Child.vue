@@ -3,6 +3,7 @@
 <p>{{ childtitle }}</p>
 <p>{{ msg }}</p>
 <p>{{ value }}</p>
+<p>{{ value }}</p>
 </template>
 
 <script>

@@ -40,13 +40,15 @@ myFunction(){
  this.toLowerResult = this.username.toLowerCase();
  console.log("tolower->>", this.toLowerResult);
 },
-getFirstName(){
+getFirstName(){  
 this.getResultOfFirstName = this.subject.includes('Math');
  console.log("includes->>", this.getResultOfFirstName);
+ console.log("include latests->>", this.getResultOfFirstName);
 },
  checkResultOfEvery(){
                 this.getResultOfEvery = this.marks.every(this.checkResult);
                 console.log("tolower->>", this.getResultOfEvery);
+                 console.log("layest tolower->>", this.getResultOfEvery);
               },
              checkResult(mark){
               return mark > 33;
