@@ -12,7 +12,7 @@
 
 <hr><hr>
 <h1>Form Submit</h1>
-<form>
+<form @submit.prevent>
 <input type="text" v-model="name" placeholder="Enter Name"/>
 <input type="text" v-model="email" placeholder="Enter Email"/>
 <button type="submit" @click="submitData">Submit Form Data</button>
@@ -24,12 +24,6 @@
 export default {
   name: "Child",
   components: {},
-  props:{
-    childtitle: String,
-    msg: String,
-    value: Number,
-    list: Array,
-    },
    data() {
     return {
     name:'',
@@ -46,7 +40,7 @@ export default {
 this.$emit('getFullInfo','Vaishali','Makwana');
     },
     submitData(){
-
+this.$emit('passdata',{name:this.name,email:this.email});
     },
   },
   }

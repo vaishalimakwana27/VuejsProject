@@ -11,10 +11,11 @@
 
 
 <button @click="saveDataArray">Save</button>
-<childcom :value="count"/>
-<br><br><br> 
 <hr>
-<childcom :list="newArray"/>   
+<h1>Emit</h1>
+<childcom :value="count"  :list="newArray"  @getFullName="onFullName" @getFullInfo="getFullInfo"/>
+<p> {{fullName }}</p>
+<br><br><br> 
 </template>
 
 <script>
@@ -28,6 +29,7 @@ export default {
     childMsg:'This dynamic msg form pass Parent components to child components',
  count:0,
  newArray:[],
+ fullName:"",
     };
   },
   methods:{
@@ -36,6 +38,13 @@ onclickButton(){
 },
 onclickButton(){
   this.newArray.push(this.count++);
+},
+onFullName(name){
+this.fullName= name;
+  console.log("fullname",name);
+},
+getFullInfo(firstName,lastName){
+ console.log("getInfo",firstName,lastName);
 },
   },
   
