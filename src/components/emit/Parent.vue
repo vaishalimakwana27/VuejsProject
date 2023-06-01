@@ -6,6 +6,8 @@
 <br><br><br> 
 <h2> {{name }}</h2>
 <h2> {{email }}</h2>
+<h1>cello copy</h1>
+<button @click="getCelloCopyValue()">Cello copy</button><br><br>
 </template>
 
 <script>
@@ -17,8 +19,9 @@ export default {
    data() {
     return {
    fullName:"",
- name:"",
- email:"",
+    name:"",
+    email:"",
+  
     };
   },
   methods:{
@@ -33,6 +36,13 @@ getFullInfo(firstName,lastName){
 getPersonalInfo(data){
 this.name = data.name;
 this.email = data.email;
+},
+getCelloCopyValue(){
+let celloCopyArr = {name:'lenova'};
+let obj = {...celloCopyArr};
+obj.name = "Sony";
+console.log("Object is:--",celloCopyArr);
+console.log("Value is:--",obj);
 },
   },
   
