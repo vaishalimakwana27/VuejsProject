@@ -17,6 +17,7 @@
 <input type="text" v-model="email" placeholder="Enter Email"/>
 <button type="submit" @click="submitData">Submit Form Data</button>
 </form>
+<button @click = "sendDatatoParent()">Send Data</button>
 </template>
 
 <script>
@@ -28,6 +29,7 @@ export default {
     return {
     name:'',
     email:'',
+    title:'Send data to Parent using Emvent Bus',
  
     };
     
@@ -41,6 +43,9 @@ this.$emit('getFullInfo','Vaishali','Makwana');
     },
     submitData(){
 this.$emit('passdata',{name:this.name,email:this.email});
+    },
+     sendDatatoParent(){
+this.emitter.emit('passdatatoParent',this.title});
     },
   },
   }

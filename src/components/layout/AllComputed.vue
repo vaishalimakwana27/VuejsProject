@@ -55,5 +55,11 @@ this.getResultOfFirstName = this.subject.includes('Math');
               console.log("every->>", this.getResultOfEvery);
             }
 },
+mounted() {
+  this.emitter.on("passdata",(list) =>{
+  console.log("Event Bus--",list);
+  this.msg = data;
+});
+  },
   }
 </script>

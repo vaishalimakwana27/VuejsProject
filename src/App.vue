@@ -2,6 +2,7 @@
   <headers />
  <hr>
   <parentcomponent />
+  <allcomputed />
   <br>
 </template>
 
@@ -26,9 +27,20 @@ export default {
   },
   props: {},
   data() {
-    return {};
+    return {
+    msg:'',
+    };
   },
-  methods: {},
+ 
+  methods: {
+  getData(){},
+  },
+   mounted() {
+  this.emitter.on("passdatatoParent",(data) =>{
+  console.log("Event Bus--",data);
+  this.msg = data;
+});
+  },
 };
 </script>
 
